@@ -13,6 +13,7 @@ public class StackTraversal {
         createBTreeAndTraverse(new int[]{});
         createBTreeAndTraverse(new int[]{1});
         createBTreeAndTraverse(new int[]{7, 6, 4, 8, 2});
+        createBTreeAndTraverse(new int[]{9, 6, 5, 4, 2});
     }
 
     public static void createBTreeAndTraverse (int[] nums) {
@@ -34,16 +35,11 @@ public class StackTraversal {
 
         out.print("Tree - ");
 
-        while (current != null) {
+        while (!(current == null && stack.isEmpty())) {
             pushAllLeft(stack, current);
             BTree last = stack.pop();
             out.print(last.value + " ");
-
-            if (stack.isEmpty()) break;
-
-            BTree secondLast = stack.pop();
-            out.print(secondLast.value + " ");
-            current = secondLast.right;
+            current = last.right;
         }
         out.println();
     }
