@@ -41,6 +41,7 @@ public class StackTraversal {
             out.print(last.value + " ");
             current = last.right;
         }
+
         out.println();
     }
 }
